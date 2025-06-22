@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentaCare - Стоматологическая клиника</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>DentaCare</h1>
+                        <p>Стоматологическая клиника</p>
+                    </div>
+                </div>
+
+                <nav class="nav desktop-nav">
+                    <a href="#home" class="nav-link active">Главная</a>
+                    <a href="#about" class="nav-link">Клиника</a>
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <a href="#doctors" class="nav-link">Врачи</a>
+                    <a href="#prices" class="nav-link">Цены</a>
+                    <a href="#promotions" class="nav-link">Акции</a>
+                    <a href="#reviews" class="nav-link">Отзывы</a>
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </nav>
+
+                <div class="header-contact">
+                    <div class="contact-info">
+                        <p class="phone">+7 (495) 123-45-67</p>
+                        <p class="schedule">Ежедневно 9:00-21:00</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="scrollToSection('about')">Записаться</button>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="mobile-nav">
+                <a href="#home" class="nav-link">Главная</a>
+                <a href="#about" class="nav-link">О клинике</a>
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#doctors" class="nav-link">Врачи</a>
+                <a href="#prices" class="nav-link">Цены</a>
+                <a href="#promotions" class="nav-link">Акции</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+                <div class="mobile-contact">
+                    <p class="phone">+7 (495) 123-45-67</p>
+                    <p class="schedule">Ежедневно 9:00-21:00</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('about')">Записаться</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Здоровая улыбка - <span class="highlight">наша забота</span></h2>
+                    <p>Современная стоматологическая клиника с опытными врачами и новейшим оборудованием. Мы заботимся о здоровье ваших зубов уже более 10 лет.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('about')">Записаться на прием</button>
+                        <button class="btn btn-outline" onclick="scrollToSection('services')">Наши услуги</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/placeholder.svg?height=500&width=600" alt="Стоматологическая клиника">
+                    <div class="hero-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="badge-text">
+                            <p class="badge-number">1000+</p>
+                            <p class="badge-label">Довольных пациентов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>О нашей клинике</h2>
+                <p>DentaCare - это современная стоматологическая клиника, где каждый пациент получает индивидуальный подход и качественное лечение</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>10+ лет опыта</h3>
+                    <p>Успешной работы в сфере стоматологии</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Команда экспертов</h3>
+                    <p>Высококвалифицированные врачи</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Современное оборудование</h3>
+                    <p>Новейшие технологии лечения</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Индивидуальный подход</h3>
+                    <p>К каждому пациенту</p>
+                </div>
+            </div>
+
+            <!-- Quick Appointment Form -->
+            <div class="appointment-form-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Быстрая запись на прием</h3>
+                        <p>Оставьте заявку и мы свяжемся с вами в течение 15 минут</p>
+                    </div>
+                    <form class="appointment-form" onsubmit="handleAppointmentSubmit(event)">
+                        <div class="form-row">
+                            <input type="text" placeholder="Ваше имя" required>
+                            <input type="tel" placeholder="Телефон" required>
+                        </div>
+                        <div class="form-row">
+                            <select required>
+                                <option value="">Выберите услугу</option>
+                                <option value="consultation">Консультация</option>
+                                <option value="therapy">Терапия</option>
+                                <option value="surgery">Хирургия</option>
+                                <option value="orthodontics">Ортодонтия</option>
+                                <option value="implantation">Имплантация</option>
+                                <option value="hygiene">Гигиена</option>
+                            </select>
+                            <input type="date" required>
+                            <select required>
+                                <option value="">Время</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                            </select>
+                        </div>
+                        <textarea placeholder="Комментарий (необязательно)"></textarea>
+                        <button type="submit" class="btn btn-primary btn-full">Записаться на прием</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши услуги</h2>
+                <p>Полный спектр стоматологических услуг с использованием современных технологий</p>
+            </div>
+
+            <div class="service-tabs">
+                <button class="service-tab active" onclick="showService('therapy')">Терапия</button>
+                <button class="service-tab" onclick="showService('orthopedics')">Ортопедия</button>
+                <button class="service-tab" onclick="showService('surgery')">Хирургия</button>
+                <button class="service-tab" onclick="showService('orthodontics')">Ортодонтия</button>
+                <button class="service-tab" onclick="showService('implantation')">Имплантация</button>
+                <button class="service-tab" onclick="showService('hygiene')">Гигиена</button>
+            </div>
+
+            <div class="service-content">
+                <div id="therapy" class="service-panel active">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Терапия</h3>
+                            <p>Лечение кариеса, пульпита, периодонтита</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Лечение кариеса</span>
+                                <span class="price">от 3 500 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Лечение пульпита</span>
+                                <span class="price">от 8 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Лечение периодонтита</span>
+                                <span class="price">от 12 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Реставрация зубов</span>
+                                <span class="price">от 6 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="orthopedics" class="service-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Ортопедия</h3>
+                            <p>Протезирование и восстановление зубов</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Коронки металлокерамические</span>
+                                <span class="price">от 15 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Коронки циркониевые</span>
+                                <span class="price">от 25 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Съемные протезы</span>
+                                <span class="price">от 35 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Виниры</span>
+                                <span class="price">от 20 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="surgery" class="service-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Хирургия</h3>
+                            <p>Удаление зубов и хирургические операции</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Удаление зуба простое</span>
+                                <span class="price">от 2 500 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Удаление зуба сложное</span>
+                                <span class="price">от 5 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Удаление зуба мудрости</span>
+                                <span class="price">от 8 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Синус-лифтинг</span>
+                                <span class="price">от 25 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="orthodontics" class="service-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Ортодонтия</h3>
+                            <p>Исправление прикуса и выравнивание зубов</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Брекеты металлические</span>
+                                <span class="price">от 80 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Брекеты керамические</span>
+                                <span class="price">от 120 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Элайнеры</span>
+                                <span class="price">от 200 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Ретейнеры</span>
+                                <span class="price">от 15 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="implantation" class="service-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Имплантация</h3>
+                            <p>Восстановление зубов с помощью имплантов</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Имплант + коронка</span>
+                                <span class="price">от 45 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Имплант премиум</span>
+                                <span class="price">от 65 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>All-on-4</span>
+                                <span class="price">от 250 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>All-on-6</span>
+                                <span class="price">от 350 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="hygiene" class="service-panel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Гигиена</h3>
+                            <p>Профессиональная чистка и профилактика</p>
+                        </div>
+                        <div class="procedures-grid">
+                            <div class="procedure-item">
+                                <span>Профессиональная чистка</span>
+                                <span class="price">от 4 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Отбеливание ZOOM</span>
+                                <span class="price">от 25 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Air Flow</span>
+                                <span class="price">от 3 000 ₽</span>
+                            </div>
+                            <div class="procedure-item">
+                                <span>Фторирование</span>
+                                <span class="price">от 1 500 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши врачи</h2>
+                <p>Команда высококвалифицированных специалистов с многолетним опытом</p>
+            </div>
+
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <img src="img/Kisegach.jpeg?height=300&width=300" alt="Иванова Анна Сергеевна">
+                    <h3>Анастасия Константиновна Кисегач</h3>
+                    <p class="specialty">Главный врач, стоматолог-терапевт</p>
+                    <p class="experience">Опыт: 15 лет</p>
+                    <p class="education">МГМСУ им. А.И. Евдокимова</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/Bikov.jpeg?height=300&width=300" alt="Петров Михаил Александрович">
+                    <h3>Андрей Евгеньевич Быков</h3>
+                    <p class="specialty">Стоматолог-хирург, имплантолог</p>
+                    <p class="experience">Опыт: 12 лет</p>
+                    <p class="education">СПбГМУ им. И.П. Павлова</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/Lobanov.jpg?height=300&width=300" alt="Сидорова Елена Викторовна">
+                    <h3>Семён Семёнович Лобанов</h3>
+                    <p class="specialty">Стоматолог-ортодонт</p>
+                    <p class="experience">Опыт: 10 лет</p>
+                    <p class="education">РУДН</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/Romanenko.jpg?height=300&width=300" alt="Козлов Дмитрий Игоревич">
+                    <h3>Глеб Викторович Романенко</h3>
+                    <p class="specialty">Стоматолог-ортопед</p>
+                    <p class="experience">Опыт: 8 лет</p>
+                    <p class="education">МГМСУ им. А.И. Евдокимова</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices" class="prices">
+        <div class="container">
+            <div class="section-header">
+                <h2>Цены на услуги</h2>
+                <p>Прозрачное ценообразование без скрытых платежей</p>
+            </div>
+
+            <div class="prices-grid">
+                <div class="price-card">
+                    <h3>Терапия</h3>
+                    <p>Лечение кариеса, пульпита, периодонтита</p>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span>Лечение кариеса</span>
+                            <span class="price">от 3 500 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Лечение пульпита</span>
+                            <span class="price">от 8 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Лечение периодонтита</span>
+                            <span class="price">от 12 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Реставрация зубов</span>
+                            <span class="price">от 6 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <h3>Хирургия</h3>
+                    <p>Удаление зубов и хирургические операции</p>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span>Удаление зуба простое</span>
+                            <span class="price">от 2 500 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Удаление зуба сложное</span>
+                            <span class="price">от 5 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Удаление зуба мудрости</span>
+                            <span class="price">от 8 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Синус-лифтинг</span>
+                            <span class="price">от 25 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <h3>Имплантация</h3>
+                    <p>Восстановление зубов с помощью имплантов</p>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span>Имплант + коронка</span>
+                            <span class="price">от 45 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Имплант премиум</span>
+                            <span class="price">от 65 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>All-on-4</span>
+                            <span class="price">от 250 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>All-on-6</span>
+                            <span class="price">от 350 000 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <h3>Гигиена</h3>
+                    <p>Профессиональная чистка и профилактика</p>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span>Профессиональная чистка</span>
+                            <span class="price">от 4 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Отбеливание ZOOM</span>
+                            <span class="price">от 25 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Air Flow</span>
+                            <span class="price">от 3 000 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Фторирование</span>
+                            <span class="price">от 1 500 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-info">
+                <div class="card">
+                    <h3>Информация об оплате и рассрочке</h3>
+                    <div class="payment-grid">
+                        <div class="payment-column">
+                            <h4>Способы оплаты:</h4>
+                            <ul>
+                                <li>Наличные</li>
+                                <li>Банковские карты</li>
+                                <li>Безналичный расчет</li>
+                                <li>Медицинское страхование</li>
+                            </ul>
+                        </div>
+                        <div class="payment-column">
+                            <h4>Рассрочка:</h4>
+                            <ul>
+                                <li>До 12 месяцев без %</li>
+                                <li>Без первоначального взноса</li>
+                                <li>Быстрое оформление</li>
+                                <li>Индивидуальные условия</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="promotions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Акции и специальные предложения</h2>
+                <p>Выгодные предложения для наших пациентов</p>
+            </div>
+
+            <div class="promotions-grid">
+                <div class="promotion-card">
+                    <div class="promotion-badge">Акция</div>
+                    <h3>Скидка 20% на первичный прием</h3>
+                    <p>Для новых пациентов действует скидка на консультацию и диагностику</p>
+                    <div class="promotion-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Действует до: 31.12.2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Условия: При записи через сайт</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="scrollToSection('about')">Записаться</button>
+                </div>
+
+                <div class="promotion-card">
+                    <div class="promotion-badge">Акция</div>
+                    <h3>Профессиональная гигиена + отбеливание</h3>
+                    <p>Комплексная процедура со скидкой 30%</p>
+                    <div class="promotion-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Действует до: 15.02.2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Условия: При оплате в день процедуры</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="scrollToSection('about')">Записаться</button>
+                </div>
+
+                <div class="promotion-card">
+                    <div class="promotion-badge">Акция</div>
+                    <h3>Семейная скидка</h3>
+                    <p>Скидка 15% при лечении всей семьи</p>
+                    <div class="promotion-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Действует до: Постоянно</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Условия: От 3-х членов семьи</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="scrollToSection('about')">Записаться</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Отзывы пациентов</h2>
+                <p>Что говорят о нас наши пациенты</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="review-date">15.01.2025</span>
+                    </div>
+                    <p>"Отличная клиника! Врачи профессионалы, современное оборудование. Лечила зубы у Анны Сергеевны - очень довольна результатом."</p>
+                    <div class="review-author">Мария К.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="review-date">08.01.2025</span>
+                    </div>
+                    <p>"Делал имплантацию у Михаила Александровича. Все прошло безболезненно, результат превосходный. Рекомендую!"</p>
+                    <div class="review-author">Алексей П.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="review-date">22.12.2024</span>
+                    </div>
+                    <p>"Ставила брекеты дочке у Елены Викторовны. Очень внимательный врач, результат отличный. Спасибо большое!"</p>
+                    <div class="review-author">Светлана Д.</div>
+                </div>
+            </div>
+
+            <div class="reviews-action">
+                <button class="btn btn-outline" onclick="openReviewModal()">Оставить отзыв</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Контакты</h2>
+                <p>Свяжитесь с нами удобным способом</p>
+            </div>
+
+            <div class="contacts-content">
+                <div class="contact-info">
+                    <h3>Как нас найти</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Адрес клиники</h4>
+                                <p>г. Москва, ул. Примерная, д. 123, стр. 1</p>
+                                <p>м. Примерная (5 мин пешком)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Телефоны</h4>
+                                <p>+7 (495) 123-45-67</p>
+                                <p>+7 (495) 123-45-68</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>info@dentacare.ru</p>
+                                <p>reception@dentacare.ru</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Часы работы</h4>
+                                <p>Понедельник - Пятница: 9:00 - 21:00</p>
+                                <p>Суббота - Воскресенье: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.3018335429974!2d73.37184758099278!3d54.993990346901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43aafe17f49a98c1%3A0xbd7031ddd6849111!2z0KTQu9Cw0LPQvNCw0L0!5e0!3m2!1sru!2sru!4v1679119707236!5m2!1sru!2sru"
+                        width="548" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Форма обратной связи</h3>
+                            <p>Оставьте сообщение и мы свяжемся с вами в ближайшее время</p>
+                        </div>
+                        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                            <input type="text" placeholder="Ваше имя" required>
+                            <input type="email" placeholder="Email" required>
+                            <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
+                            <button type="submit" class="btn btn-primary btn-full">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h3>DentaCare</h3>
+                            <p>Стоматологическая клиника</p>
+                        </div>
+                    </div>
+                    <p>Современная стоматология с индивидуальным подходом к каждому пациенту.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li onclick="scrollToSection('services')">Терапия</li>
+                        <li onclick="scrollToSection('services')">Хирургия</li>
+                        <li onclick="scrollToSection('services')">Ортопедия</li>
+                        <li onclick="scrollToSection('services')">Ортодонтия</li>
+                        <li onclick="scrollToSection('services')">Имплантация</li>
+                        <li onclick="scrollToSection('services')">Гигиена</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li>О клинике</li>
+                        <li>Наши врачи</li>
+                        <li>Цены</li>
+                        <li>Акции</li>
+                        <li>Отзывы</li>
+                        <li>Контакты</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="footer-contacts">
+                        <p>+7 (495) 123-45-67</p>
+                        <p>info@dentacare.ru</p>
+                        <p>г. Москва, ул. Примерная, д. 123</p>
+                        <p>Ежедневно 9:00-21:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DentaCare. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Оставить отзыв</h3>
+                <span class="modal-close" onclick="closeReviewModal()">&times;</span>
+            </div>
+            <form class="review-form" onsubmit="handleReviewSubmit(event)">
+                <div class="form-row">
+                    <input type="text" id="reviewName" placeholder="Ваше имя" required>
+                    <input type="email" id="reviewEmail" placeholder="Email (необязательно)">
+                </div>
+                <div class="rating-section">
+                    <label>Ваша оценка:</label>
+                    <div class="star-rating">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <input type="hidden" id="reviewRating" value="5" required>
+                </div>
+                <div class="service-selection">
+                    <label for="reviewService">Услуга (необязательно):</label>
+                    <select id="reviewService">
+                        <option value="">Выберите услугу</option>
+                        <option value="consultation">Консультация</option>
+                        <option value="therapy">Терапия</option>
+                        <option value="surgery">Хирургия</option>
+                        <option value="orthodontics">Ортодонтия</option>
+                        <option value="implantation">Имплантация</option>
+                        <option value="hygiene">Гигиена</option>
+                        <option value="orthopedics">Ортопедия</option>
+                    </select>
+                </div>
+                <textarea id="reviewText" placeholder="Расскажите о своем опыте посещения нашей клиники..." rows="5" required></textarea>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-outline" onclick="closeReviewModal()">Отмена</button>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
